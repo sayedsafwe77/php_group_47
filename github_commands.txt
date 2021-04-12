@@ -1,0 +1,32 @@
+steps to push on git hub
+1- git add .
+2- git commit -m 'your comment'
+3-git push origin master
+
+
+
+steps to pull files from a repo
+1- if this is the first time at the repo
+git clone repo_link
+
+2-if you are allready connected with the repo
+git pull origin master
+
+
+steps to configure github for first time only
+git config --global user.name 'user_name'
+git config --global user.email 'user_email'
+
+
+link the folder to a repo
+git remote add origin repo_link
+
+
+-- add all files to be commited
+git add .
+
+
+-- we can add only one file
+git add file_name
+
+
