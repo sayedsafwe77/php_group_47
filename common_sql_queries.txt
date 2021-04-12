@@ -1,0 +1,52 @@
+
+-- add column 
+alter table product add column product INT
+
+
+-- modify column 
+alter table product modify column product INT
+
+
+-- drop column 
+alter table product drop column product INT
+
+
+-- add multiple columns 
+ALTER TABLE contacts ADD last_name varchar(40) NOT NULL AFTER contact_id, ADD first_name varchar(35) NULL AFTER last_name;
+
+
+-- modify multiple columns 
+ALTER TABLE table_name MODIFY column_name column_definition, MODIFY column_name column_definition;
+
+
+-- cahnge column name 
+ALTER TABLE table_name CHANGE COLUMN old_name new_name column_datatype 
+
+
+-- rename table 
+ALTER TABLE table_name RENAME TO new_table_name;
+
+-- add foreign key after creating table
+ALTER TABLE product ADD FOREIGN KEY (category_id) REFERENCES category(id);
+
+-- add primery key after creating table
+ALTER TABLE product ADD PRIMERY KEY (id);
+
+-change column value
+UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
+
+--delete database
+DROP DATABASE testDB;
+
+-- delete all values inside table
+DELETE FROM Customers;
+
+-- delete spacific record inside table
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+-- insert in table product all values
+insert into product values('','','')
+
+-- if you want to add values in some column only not all columns 
+insert into product('','') values('','')
+
