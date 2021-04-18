@@ -1,3 +1,4 @@
+create database php_project
 create TABLE admin(
 id INT(10) PRIMARY KEY AUTO_INCREMENT,
 username VARCHAR(50) ,
