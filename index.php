@@ -1,57 +1,110 @@
 <?php
+//    interface Employers{
+//        public function getName();
+//        public function getSalary();
+//        public function setSalary($s);
+//    }
+//     final class Employer{
+//       public $name;
+//       public $email;
+//       public $gender;
+//       public $salary;
+//       public function __construct($x,$y,$z){
+//          $this->name=$x;
+//          $this->email=$y;
+//          $this->gender=$z;
+//       }
+//       public function getName(){
+//          return $this->name;
+//       }
+//       public function getSalary(){
+//          return $this->salary;
+//       }
+//        public function setSalary($s){
+//          $this->salary=$s;
+//       }
+//    }
+//    class marketing implements Employers{
+//       public $department;
+//       public function __construct($x,$y,$z,$dep){
+//          $this->department=$dep;
+//       }
+//       public function setSalary($s){
+//          $this->salary=$s+1000;
+//       }
+//       public function setName($s){
+//          $this->salary=$s+1000;
+//       }
+//       public function getName(){
+//         return $this->name;
+//       }
+//       public function getSalary(){
+//         return $this->salary;
+//       }
+//    }
+//    class sales implements Employers{
+//       public $department;
+//       public function __construct($x,$y,$z,$dep){
+//          $this->department=$dep;
+//       }
+//       public function setSalary($s){
+//          $this->salary=$s+1000;
+//       }
+//       public function setName($s){
+//          $this->salary=$s+1000;
+//       }
+//       public function getName(){
+//         return $this->name;
+//       }
+//       public function getSalary(){
+//         return $this->salary;
+//       }
+//    }
+// $mostafa=new sales('mostafa','mostafa@gmail.com','male','marketing');
+// $mostafa->setSalary(4000);
 
-// class car{
-//   // access modifier
-//   private $color;
-//   public $model;
-//   public $manufacturer;
-//   function __construct($carColor,$carModal,$carManufacturer){
-//     $this->color=$carColor;
-//     $this->model=$carModal;
-//     $this->manufacturer=$carManufacturer;
-//   }
-//   function getColor(){
-//     return $this->color;
-//   }
-// }
-// $sayedCar=new car('red','2017','china');
-// $sayedCar->color='black';
-// $ahmedCar=new car('blue','2019','china');
-// var_dump($sayedCar->getColor());
-// var_dump($ahmedCar);
+// $ahmed=new Employer('mostafa','mostafa@gmail.com','male');
+// var_dump($ahmed);
 
-
+namespace secondemployer;
 class Employer{
-  public $name;
-  public $email;
-  private $salary;
-  function __construct($employerName,$employerEmail)
-  {
-    $this->name=$employerName;
-    $this->email=$employerEmail;
-  }
-  function setSalary($employerSalary){
-    $this->salary=$employerSalary+500;
-  }
-  function getSalary(){
-   return $this->salary;
-  }
-  function getName(){
-    return $this->name;
+   protected $name;
+   public $email;
+   public function setName($name){
+      $this->name=$name;
+   }
+   public function getName(){
+      return $this->name;
    }
 }
-class marketingEmployers {
-  const  department='marketing';
-}
-class salesEmployers extends marketingEmployers{
-  const department='sales';
-  static function getDepartment(){
-    return parent::department;
+trait printMyName{
+   public $newTrait;
+   public function printName($name){
+      echo 'welcome '.$name;
+   }
+   public function printEmail($email){
+      echo 'your email is '.$email;
    }
 }
+class sales{
+   protected $name;
+   public $email;
+   public function setName($name){
+      $this->name=$name;
+   }
+   public function getName(){
+      return $this->name;
+   }
+}
+class managers extends Employer{
+   use printMyName;
+}
+$mostafa=new managers();
+// $mostafa->printEmail('mostafa@gmail.com');
+$mostafa->newTrait='new';
+var_dump($mostafa->newTrait);
+// var_dump($mostafa->getName());
 
-$yousef=new salesEmployers('mohamed','mohamed@gmail.com');
-var_dump(salesEmployers::getDepartment());
 
 
 
@@ -64,5 +117,8 @@ var_dump(salesEmployers::getDepartment());
 
 
 
- 
+
+
+
+
 ?>
